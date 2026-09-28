@@ -1,0 +1,8 @@
+/* =========================== VISUALIZAÇÃO DESKTOP GRANDE (1920x1280) =========================== */
+/* -------- Definições e Variáveis Globais ------ */
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----------- Grade do Jogo da Velha ----------- */
