@@ -3,12 +3,23 @@
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 :root {
+    --cor-primaria: #1E96FC;
+    --cor-secundaria: #E5383B;
+    --cor-clara: #F8F9FA;
+    --cor-escura: #250902;
+    --cor-cinza: #BAC7D3;
+
     --espessura-grade: 5px;
 }
 
+body { background-color: var(--cor-clara); }
+
+/* -------- Título e Placar de Pontuação -------- */
 h1 img {
     display: block;
     margin: auto;
@@ -18,6 +29,11 @@ main {
     display: flex; 
     flex-flow: row nowrap;
     justify-content: space-between;
+}
+
+.placar-pontuacao h2, .placar-pontuacao p {
+    text-transform: uppercase;
+    font-weight: 900;
 }
 
 /* ----------- Grade do Jogo da Velha ----------- */
@@ -41,7 +57,7 @@ figure {
 .icone-x { background-image: url(../images/icone_x.png); }
 
 .barra-cinza {
-    background-color: gray;
+    background-color: var(--cor-cinza);
     position: absolute;
     border-radius: 20px;
 }
