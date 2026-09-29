@@ -8,36 +8,40 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-    <h1><img src="images/logo_tixtactoe.png" alt="TixTacToe"></h1>
-
-    <aside id="jogador1" class="placar-pontuacao">
-        <h2>Jogador 1</h2>
-        <p>0</p>
-    </aside>
+    <h1>
+        <img src="images/logo_tixtactoe.png" alt="TixTacToe">
+    </h1>
 
     <main>
-        <div id="grade-jogo">
-            <div class="area-grade"></div>
-            <div class="area-grade"></div>
-            <div class="area-grade"></div>
-            <div class="area-grade"></div>
-            <div class="area-grade"></div>
-            <div class="area-grade"></div>
-            <div class="area-grade"></div>
-            <div class="area-grade"></div>
-            <div class="area-grade"></div>
-        </div>
-
-        <div class="barra-cinza"></div>
-        <div class="barra-cinza"></div>
-        <div class="barra-cinza"></div>
-        <div class="barra-cinza"></div>
+        <aside id="jogador1" class="placar-pontuacao">
+            <h2>Jogador 1</h2>
+            <p>0</p>
+        </aside>
+    
+        <figure>
+            <div id="grade-jogo">
+                <div class="area-grade icone-o"></div>
+                <div class="area-grade icone-x"></div>
+                <div class="area-grade icone-o"></div>
+                <div class="area-grade icone-x"></div>
+                <div class="area-grade icone-o"></div>
+                <div class="area-grade icone-x"></div>
+                <div class="area-grade icone-x"></div>
+                <div class="area-grade icone-o"></div>
+                <div class="area-grade icone-x"></div>
+            </div>
+    
+            <div class="barra-cinza barra-vertical"></div>
+            <div class="barra-cinza barra-vertical"></div>
+            <div class="barra-cinza barra-horizontal"></div>
+            <div class="barra-cinza barra-horizontal"></div>
+        </figure>
+    
+        <aside id="jogador2" class="placar-pontuacao">
+            <h2>Jogador 2</h2>
+            <p>0</p>
+        </aside>
     </main>
-
-    <aside id="jogador2" class="placar-pontuacao">
-        <h2>Jogador 2</h2>
-        <p>0</p>
-    </aside>
 
     <script src="js/script.js"></script>
 </body>
