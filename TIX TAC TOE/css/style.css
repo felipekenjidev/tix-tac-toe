@@ -14,57 +14,76 @@
     --cor-escura: #250902;
     --cor-cinza: #BAC7D3;
 
-    --espessura-grade: 5px;
-    --tamanho-forma: 50px;
+    --espessura-grade: 10px;
 }
 
-body { background-color: var(--cor-clara); }
+body { 
+    width: 100vw; height: 100vh;
+    background-color: var(--cor-clara);
+    overflow: hidden;
+}
 
 /* -------- Título e Placar de Pontuação -------- */
-h1 img {
-    display: block;
-    margin: auto;
+h1 {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-main { 
-    display: flex; 
-    flex-flow: row nowrap;
-    justify-content: space-between;
+h1 img {
+    width: 300px;
 }
 
 .placar-pontuacao h2, .placar-pontuacao p {
+    color: var(--cor-clara);
     text-transform: uppercase;
     font-weight: 900;
+}
+
+.placar-pontuacao h2 {
+    font-size: 50px;
+    white-space: nowrap;
+}
+
+.placar-pontuacao p {
+    font-size: 70px;
 }
 
 aside {
     display: flex; flex-wrap: nowrap;
     align-items: center;
-}
 
-aside h2, aside p { color: var(--cor-clara); }
+    position: absolute; top: 50%;
+    transform: translateY(-50%);
+
+    width: 500px; height: 700px;
+}
 
 #jogador1 {
-    flex-direction: row;
+    flex-direction: row; left: 0;
     background-color: var(--cor-primaria);
-    border-radius: 0 200px 200px 0;
+    border-radius: 0 50% 50% 0;
+    padding-left: 300px; margin-left: -300px;
 }
 
-#jogador1 h2 { transform: rotate(90deg); transform-origin: center center; }
-#jogador1 p { margin-left: -30px; }
+#jogador1 h2 { transform: rotate(90deg); transform-origin: center center; margin-left: -100px; }
+#jogador1 p { margin-left: -80px; }
 
 #jogador2 { 
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; right: 0;
     background-color: var(--cor-secundaria);
-    border-radius: 200px 0 0 200px;
+    border-radius: 50% 0 0 50%;
+    padding-right: 300px; margin-right: -300px;
 }
 
-#jogador2 h2 { transform: rotate(-90deg); transform-origin: center center; }
-#jogador2 p { margin-right: -30px; }
+#jogador2 h2 { transform: rotate(-90deg); transform-origin: center center; margin-right: -100px; }
+#jogador2 p { margin-right: -80px; }
 
 /* ----------- Grade do Jogo da Velha ----------- */
 figure {
-    position: relative;
+    position: absolute; top: 50%; left: 50%;
+    transform: translateY(-50%) translateX(-50%);
 }
 
 #grade-jogo {
@@ -73,9 +92,7 @@ figure {
 }
 
 .area-grade {
-    width: 50px; height: 50px;
-    margin: 5px;
-    
+    width: 150px; height: 150px; margin: 20px;
     background-size: cover;
 }
 
