@@ -15,6 +15,7 @@
     --cor-cinza: #BAC7D3;
 
     --espessura-grade: 5px;
+    --tamanho-forma: 50px;
 }
 
 body { background-color: var(--cor-clara); }
@@ -35,6 +36,31 @@ main {
     text-transform: uppercase;
     font-weight: 900;
 }
+
+aside {
+    display: flex; flex-wrap: nowrap;
+    align-items: center;
+}
+
+aside h2, aside p { color: var(--cor-clara); }
+
+#jogador1 {
+    flex-direction: row;
+    background-color: var(--cor-primaria);
+    border-radius: 0 200px 200px 0;
+}
+
+#jogador1 h2 { transform: rotate(90deg); transform-origin: center center; }
+#jogador1 p { margin-left: -30px; }
+
+#jogador2 { 
+    flex-direction: row-reverse;
+    background-color: var(--cor-secundaria);
+    border-radius: 200px 0 0 200px;
+}
+
+#jogador2 h2 { transform: rotate(-90deg); transform-origin: center center; }
+#jogador2 p { margin-right: -30px; }
 
 /* ----------- Grade do Jogo da Velha ----------- */
 figure {
