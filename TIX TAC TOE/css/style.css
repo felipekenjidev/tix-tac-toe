@@ -96,9 +96,6 @@ figure {
     background-size: cover;
 }
 
-.icone-o { background-image: url(../images/icone_o.png); }
-.icone-x { background-image: url(../images/icone_x.png); }
-
 .barra-cinza {
     background-color: var(--cor-cinza);
     position: absolute;
@@ -113,3 +110,33 @@ figure {
 
 .barra-horizontal:nth-child(1 of .barra-horizontal) { top: 32%; }
 .barra-horizontal:nth-child(2 of .barra-horizontal) { bottom: 32%; }
+
+/* ------------- Formas e Animações ------------- */
+.icone-o circle, .icone-x path {
+    fill: none;
+    stroke-width: 15px; stroke-linecap: round;
+}
+
+.icone-o circle {
+    stroke: var(--cor-secundaria);
+    stroke-dasharray: 430px; stroke-dashoffset: 430px;
+    animation: animarO 1s 0.1s ease-out forwards;
+}
+
+@keyframes animarO {
+    from { stroke-dashoffset: 430px; }
+    to { stroke-dashoffset: 0; }
+}
+
+.icone-x path {
+    stroke: var(--cor-primaria);
+    stroke-dasharray: 280; stroke-dashoffset: 280;
+    animation: animarX 1.2s 0.1s ease-out forwards;
+}
+
+.icone-x path:nth-child(2) {  animation-delay: 0.2s;  }
+
+@keyframes animarX {
+    from { stroke-dashoffset: 280; }
+    to { stroke-dashoffset: 0; }
+}
