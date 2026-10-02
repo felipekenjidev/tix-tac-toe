@@ -6,28 +6,30 @@ let turnoCirculo = true;
 areas.forEach(function(area) {
     area.addEventListener("click", function() {
         // Adicionar a Forma
-        if (turnoCirculo) {
-            area.innerHTML = `<svg viewBox="0 0 150 150" class="icone-o">
-                                <circle class="circulo-animado" cx="75" cy="75" r="67" />
-                            </svg>`;
-        } else {
-            area.innerHTML = `<svg viewBox="0 0 150 150" class="icone-x">
-                                <path d="M 15 15 L 135 135" />
-                                <path d="M 135 15 L 15 135" />
-                            </svg>`;
+        if (area.firstChild === null) {
+            if (turnoCirculo) {
+                area.innerHTML = `<svg viewBox="0 0 150 150" class="icone-o">
+                                    <circle class="circulo-animado" cx="75" cy="75" r="67" />
+                                </svg>`;
+            } else {
+                area.innerHTML = `<svg viewBox="0 0 150 150" class="icone-x">
+                                    <path d="M 15 15 L 135 135" />
+                                    <path d="M 135 15 L 15 135" />
+                                </svg>`;
+            }
+            
+            // Passar o Turno para o Próximo Jogador
+            turnoCirculo = !turnoCirculo;
+    
+            // Verificar Vitória ou Empate
+            verificarResultado(areas, turnoCirculo);
         }
-        
-        // Passar o Turno para o Próximo Jogador
-        turnoCirculo = !turnoCirculo;
-
-        // Verificar Vitória ou Empate
-        verificarResultado(areas, turnoCirculo);
     });
 });
 
 
 // Função para Verificar o Resultado do Jogo
-function verificarResultado(areas, turnoCirculo) {
+function verificarResultado(areas) {
     // Criar uma Matriz dos Elementos da Grade
     let matrizElementos = [];
     for (let i = 0; i < areas.length; i += 3) {
@@ -42,28 +44,30 @@ function verificarResultado(areas, turnoCirculo) {
             if (pegarIcone(matrizElementos[j][0]) == icones[i]
                 && pegarIcone(matrizElementos[j][1]) == icones[i]
                 && pegarIcone(matrizElementos[j][2]) == icones[i]) {
-                    console.log(`${icones[i]} venceu!`);
+                    mostrarResultado(icones[i].substring(6));
                 }
             
             if (pegarIcone(matrizElementos[0][j]) == icones[i]
                 && pegarIcone(matrizElementos[1][j]) == icones[i]
                 && pegarIcone(matrizElementos[2][j]) == icones[i]) {
-                    console.log(`${icones[i]} venceu!`);
+                    mostrarResultado(icones[i].substring(6));
                 }
         }
 
         if (pegarIcone(matrizElementos[0][0]) == icones[i]
             && pegarIcone(matrizElementos[1][1]) == icones[i]
             && pegarIcone(matrizElementos[2][2]) == icones[i]) {
-                console.log(`${icones[i]} venceu!`);
+                mostrarResultado(icones[i].substring(6));
             }
 
         if (pegarIcone(matrizElementos[0][2]) == icones[i]
             && pegarIcone(matrizElementos[1][1]) == icones[i]
             && pegarIcone(matrizElementos[2][0]) == icones[i]) {
-                console.log(`${icones[i]} venceu!`);
+                mostrarResultado(icones[i].substring(6));
             }
     }
+
+    mostrarResultado("e");
 }
 
 // Função para Pegar o Nome do Ícone da Área da Grade
@@ -73,5 +77,24 @@ function pegarIcone(area) {
 
 // Função para Mostrar o Resultado
 function mostrarResultado(resultado) {
+    if (resultado == "o") {
+        alert("O Círculo Ganhou!");
+        const placarO = document.querySelector("#jogador2 > p");
+        placarO.textContent = Number(placarO.textContent) + 1;
+    } else if (resultado == "x") {
+        alert("O X Ganhou!");
+        const placarX = document.querySelector("#jogador1 > p");
+        placarX.textContent = Number(placarX.textContent) + 1;
+    } else {
+        alert("O jogo empatou!");
+    }
 
+    resetarTabuleiro();
+}
+
+// Função para Reiniciar o Jogo da Velha
+function resetarTabuleiro() {
+    areas.forEach(function(area) {
+        area.innerHTML = "";
+    });
 }
